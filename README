@@ -1,0 +1,32 @@
+<======================= GOOSE GAME ========================>
+      Program Developed for Academics Purposes
+      Github Page: http://daileon.github.com/goosegame
+      Developer: Hiarison Gigante <gigante@daileon.net>
+      Undergraduate Computer Science - UFMA
+      São Luis, MA - December/2011          
+<===========================================================>
+
+DESCRIPTION
+
+This Project was writen in C Language for Academics Purposes. Is a Command Line Game.
+
+Goose Game was inspired in "Game of The Goose", board game. Consists in a track with consecutively numbered spaces (depending of selected map). Players covers spaces rolling dices. The objective is to walk in the way until the end.
+
+RUNNING THE CODE
+
+Follow steps below for compile and execute:
+1. Browse (via terminal) until where is located the project folder
+2. Run ~/compile.sh
+3. Run ~/goosegame
+
+PS.: This game was developed in Ubuntu 11.10 with GCC Compiler. If you running these code in other environment and find errors, please report to gigante@daileon.net
+
+File Description
+./source/utils.h -- contains methods that can be used anywhere in the game
+./source/dice.h  -- header file of dices
+./source/maps/map1.h -- track 1
+./source/maps/map2.h -- track 2
+./source/animation.h -- the winner animation
+./libmenu.h -- contains all the menus of game
+./gamecore.h -- this header file controls the game
+./main.c -- this file controls the state machine
