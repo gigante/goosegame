@@ -51,7 +51,7 @@ void menuCreditos(){
     printf("\n");
     printf("Return to the main menu? (y/n): ");
     scanf(" %c", &resposta);
-  } while(resposta!='s');
+  } while(resposta!='y');
 }
 
 /*
@@ -88,7 +88,7 @@ void menuRegras(){
     printf("\n");
     printf("Return to the main menu? (y/n): ");
     scanf(" %c", &resposta);
-  } while(resposta!='s');
+  } while(resposta!='y');
 }
 
 /*
@@ -118,7 +118,7 @@ void menuContinuar(){
   do {
     printf("        Continue? (y/n): ");
     scanf(" %c", &resposta);
-  } while(resposta!='s');
+  } while(resposta!='y');
 }
 
 /*
@@ -129,7 +129,7 @@ void menuDados(){
   do {
     printf("        You want roll dice?? (y/n): ");
     scanf(" %c", &resposta);
-  } while(resposta!='s');
+  } while(resposta!='y');
 }
 
 #endif // LIBMENU_H_INCLUDED
