@@ -1,12 +1,6 @@
 #ifndef MAP2_H_INCLUDED
 #define MAP2_H_INCLUDED
 
-/*
-  This Header File is responsible for drawing a map on the screen
-  Receives as parameter a struct 'Player' to show the position and names of players
-  Struct 'Player' is located in header ../utils.h
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "../utils.h"
@@ -18,8 +12,8 @@ int drawMap2(Jogador jogador1, Jogador jogador2) {
     --jogador2.posicao;
 
     int i; //counter
-    char x[TAMANHO_MAPA_2+1]; //vector track
-    for (i=0; i<=TAMANHO_MAPA_2; i++) { // clear tracks
+    char x[TAMANHO_MAPA_2 + 1]; //vector track
+    for (i=0; i <= TAMANHO_MAPA_2; i++) { // clear tracks
         x[i] = ' ';
     }
 
@@ -50,11 +44,7 @@ int drawMap2(Jogador jogador1, Jogador jogador2) {
     printf("    -------------------------           -------------------------\n");
     printf("\n");
 
-    int ganhou = 0;
-    if (jogador1.posicao==TAMANHO_MAPA_2 || jogador2.posicao==TAMANHO_MAPA_2) {
-        ganhou = 1;
-    }
-    return ganhou;
+    return (jogador1.posicao == TAMANHO_MAPA_2 || jogador2.posicao == TAMANHO_MAPA_2) ? 1 : 0;
 }
 
 #endif // MAP2_H_INCLUDED
