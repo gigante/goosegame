@@ -5,7 +5,7 @@ if [ ! -d "./bin" ]; then
 fi
 
 if [ ! -e "./bin/goosegame" ]; then
-	gcc ./source/main.c -o ./bin/goosegame # compiles the source code
+	gcc ./src/main.c -o ./bin/goosegame # compiles the source code
 fi
 
 if [ -e "./goosegame" ]; then
