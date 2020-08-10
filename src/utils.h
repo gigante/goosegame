@@ -22,7 +22,11 @@ typedef struct Jogador{
   In Windows OS is 'cls'
 */
 void limpaTela(){
+#if defined(__linux__)
   system("clear");
+#else
+  system("cls");
+#endif
 }
 
 /*

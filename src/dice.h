@@ -7,6 +7,12 @@
   PS.: The method geraAleatorio() belongs the header file ./utils.h
 */
 
+#if defined(__linux__)
+#include <unistd.h>
+#else
+#include <windows.h>
+#endif
+
 #include <stdio.h> //the standard C Library
 #include <stdlib.h> //the standard C Library
 #include "utils.h" //methods that can be used anywhere
