@@ -10,16 +10,7 @@
 #include "animation.h"
 
 int drawMap(Jogador jogador1, Jogador jogador2, int mapa) {
-    int ganhou;
-    switch (mapa) {
-    case 1:
-        ganhou = drawMap1(jogador1, jogador2);
-        break;
-    case 2:
-        ganhou = drawMap2(jogador1, jogador2);
-        break;
-    }
-    return ganhou;
+    return (mapa == 1) ? drawMap1(jogador1, jogador2) : drawMap2(jogador1, jogador2);
 }
 
 void initGame() {
@@ -34,12 +25,13 @@ void initGame() {
     while (!ganhou) {
         for (i=0; i<=1; i++) {
             menuDados();
+
             jogador[i].posicao += jogar2dados(jogador[i]);
             jogador[i].posicao = calculaPosicaoMapa(jogador[i].posicao, tamanhoMapa(mapa));
             ganhou = drawMap(jogador[0], jogador[1], mapa);
+
             if (ganhou) {
-                initAnimationWinner(jogador[i]);
-                break;
+                initAnimationWinner(jogador[i]); break;
             }
         }
     }
