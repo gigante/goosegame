@@ -16,7 +16,7 @@ int main() {
             menuCreditos(); break;
         }
         menuStatus = menuInicial();
-    };
+    }
 
     printf("Bye!");
     return 0;

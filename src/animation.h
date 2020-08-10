@@ -1,7 +1,7 @@
 #ifndef ANIMATION_H_INCLUDED
 #define ANIMATION_H_INCLUDED
 
-#include <time.h> //the standard C Library
+#include <time.h>
 
 void printFrameAnimation(int frame) {
     switch (frame)
