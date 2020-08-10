@@ -19,34 +19,17 @@ void limpaTela() {
 }
 
 int geraAleatorio(int valor_max) {
-    int aleatorio;
     srand(time(NULL));
-    aleatorio = rand()%valor_max;
-    if (aleatorio==0) {
-        aleatorio = 1;
-    }
-    return aleatorio;
+    int aleatorio = rand() % valor_max;
+    return (aleatorio == 0) ? 1 : aleatorio;
 }
 
 int calculaPosicaoMapa(int pos, int tamanho) {
-    if (pos>tamanho) {
-        int excesso = pos - tamanho;
-        pos = tamanho - excesso;
-    }
-    return pos;
+    return (pos>tamanho) ? 2 * tamanho - pos : pos;
 }
 
 int tamanhoMapa(int mapa) {
-    int tamanho;
-    switch (mapa) {
-    case 1:
-        tamanho = TAMANHO_MAPA_1+1;
-        break;
-    case 2:
-        tamanho = TAMANHO_MAPA_2+1;
-        break;
-    }
-    return tamanho;
+    return (mapa == 1) ? TAMANHO_MAPA_1 + 1 : TAMANHO_MAPA_2 + 1;
 }
 
 #endif // UTILS_H_INCLUDED
