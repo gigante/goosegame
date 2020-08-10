@@ -15,15 +15,16 @@
 
 int jogar2dados(Jogador jogador) {
     int i, dado[2], soma;
+
     limpaTela();
     printf("\n<=========================== GOOSE GAME === ROLLING DICES =====================>\n\n");
     for (i=0; i<=1; i++) {
         printf("        Rolling dice n.%d...\n", i+1);
-        sleep(TIMING_DICE);
         dado[i] = geraAleatorio(NUM_MAX_DICE);
         printf("        Dice n.%d = %d\n\n", i+1, dado[i]);
         sleep(TIMING_DICE);
     }
+
     soma = dado[0] + dado[1];
     printf("\n<==============================================================================>\n\n");
     printf("        %s, you go pass %d tracks\n", jogador.nome, soma);
