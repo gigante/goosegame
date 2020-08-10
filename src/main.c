@@ -5,19 +5,18 @@
 #include "utils.h"
 
 int main() {
-    int menuStatus;
-    do {
+    int menuStatus = menuInicial();
+    while (menuStatus >= 1 && menuStatus <= 3) {
+        switch (menuStatus) {
+        case 1:
+            initGame(); break;
+        case 2:
+            menuRegras(); break;
+        case 3:
+            menuCreditos(); break;
+        }
         menuStatus = menuInicial();
-        if (menuStatus == 1) { //Start Game
-            initGame();
-        }
-        else if (menuStatus == 2) { //Show Game Rules
-            menuRegras();
-        }
-        else if (menuStatus == 3) { //Show Credits
-            menuCreditos();
-        }
-    } while (menuStatus >= 1 && menuStatus <= 3);
+    };
 
     printf("Bye!");
     return 0;
