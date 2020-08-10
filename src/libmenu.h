@@ -47,10 +47,10 @@ void menuCreditos(){
     printf("        São Luis, MA - December/2011                                            \n");
     printf("                                                                                \n");
     printf("<==============================================================================>\n");
-    
+
     printf("\n");
     printf("Return to the main menu? (y/n): ");
-    scanf("%s", &resposta);
+    scanf(" %c", &resposta);
   } while(resposta!='s');
 }
 
@@ -58,13 +58,13 @@ void menuCreditos(){
   This menu receives the name of the players
 */
 Jogador menuJogador(int item){
-  struct Jogador jogador;
+  struct Jogador jogador = {"Player", 0};
   limpaTela();
   printf("\n");
   printf("<================================= GOOSE GAME =================================>\n\n");
   printf("        Who are the players of the time?\n\n");
   printf("        Player %d: ", item);
-  scanf("%s", jogador.nome);
+  scanf("%30s", jogador.nome);
   return jogador;
 }
 
@@ -87,7 +87,7 @@ void menuRegras(){
     printf("<==============================================================================>\n");
     printf("\n");
     printf("Return to the main menu? (y/n): ");
-    scanf("%s", &resposta);
+    scanf(" %c", &resposta);
   } while(resposta!='s');
 }
 
@@ -117,7 +117,7 @@ void menuContinuar(){
   char resposta;
   do {
     printf("        Continue? (y/n): ");
-    scanf("%s", &resposta);
+    scanf(" %c", &resposta);
   } while(resposta!='s');
 }
 
@@ -128,7 +128,7 @@ void menuDados(){
   char resposta;
   do {
     printf("        You want roll dice?? (y/n): ");
-    scanf("%s", &resposta);
+    scanf(" %c", &resposta);
   } while(resposta!='s');
 }
 

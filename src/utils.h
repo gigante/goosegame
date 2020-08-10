@@ -47,9 +47,8 @@ This method calculates the position of the player
 If it is greater than the track size, the excess will be subtracted
 */
 int calculaPosicaoMapa(int pos, int tamanho){
-  int excesso = 0;
   if(pos>tamanho){
-    excesso = pos - tamanho;
+    int excesso = pos - tamanho;
     pos = tamanho - excesso;
   }
   return pos;

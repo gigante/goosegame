@@ -16,30 +16,24 @@ This method draw the position and name of the players in the map
 If the current player have finished the entire map, is return 0 (for false) and 1 (for true)
 */
 int drawMap1(Jogador jogador1, Jogador jogador2){
-  int i; //counter
-  char x[TAMANHO_MAPA_1+1]; //vector track
-
   limpaTela();
 
   //the vector is decremented because starts at position "0"
   --jogador1.posicao;
   --jogador2.posicao;
 
+  int i; //counter
+  char x[TAMANHO_MAPA_1+1]; //vector track
   //clear all maps spaces in the track
   for(i=0; i<=TAMANHO_MAPA_1; i++){
     x[i] = ' ';
   }
 
   //decides where player will be drawed?
-  if(jogador1.posicao==jogador2.posicao){
-    x[jogador1.posicao] = '@';
-  } else if(jogador1.posicao!=jogador2.posicao){
-    if(jogador1.posicao>=0) {
+  x[jogador1.posicao] = '@';
+  if(jogador1.posicao != jogador2.posicao){
       x[jogador1.posicao] = 'X';
-    }
-    if(jogador2.posicao>=0) {
       x[jogador2.posicao] = 'Y';
-    }
   }
 
   printf("\n");

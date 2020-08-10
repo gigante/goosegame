@@ -13,7 +13,6 @@
 #include "maps/map1.h" //track 1
 #include "maps/map2.h" //track 2
 #include "animation.h" //the winner animation
-#define POSICAO_INICIAL 0
 
 /*
   This method just call the map passed as a parameter
@@ -46,17 +45,13 @@ void initGame(){
   //Capture the selected map by user
   mapa = menuEscolherMapa(); //all menus are located at ./libmenu.h
 
-  //Initializes the position of players on track
-  jogador[0].posicao = POSICAO_INICIAL;
-  jogador[1].posicao = POSICAO_INICIAL;
-
   //First draw position of players on the track
   ganhou = drawMap(jogador[0], jogador[1], mapa);
 
   //Control the game
   while(ganhou==0){
-    for(i=0; i<=1; i++){      
-      menuDados(); //dice menu      
+    for(i=0; i<=1; i++){
+      menuDados(); //dice menu
       jogador[i].posicao += jogar2dados(jogador[i]); //add new value to position of player
       //verifies that the position of the player is bigger than the map
       jogador[i].posicao = calculaPosicaoMapa(jogador[i].posicao, tamanhoMapa(mapa));
