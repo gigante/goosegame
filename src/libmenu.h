@@ -1,17 +1,10 @@
 #ifndef LIBMENU_H_INCLUDED
 #define LIBMENU_H_INCLUDED
 
-/*
-  This header file contains all the menus of game
-*/
+#include <stdio.h>
+#include <stdlib.h>
+#include "utils.h"
 
-#include <stdio.h> //the standard C Library
-#include <stdlib.h> //the standard C Library
-#include "utils.h" //methods that can be used anywhere
-
-/*
-  Show the main manu
-*/
 int menuInicial(){
   int resposta;
   do {
@@ -30,23 +23,18 @@ int menuInicial(){
   return resposta;
 }
 
-/*
-  Show credits menu
-*/
 void menuCreditos(){
   char resposta;
   do{
     limpaTela();
     printf("\n");
-    printf("<================================= GOOSE GAME =================================>\n");
-    printf("                                                                                \n");
-    printf("        Program Developed for Academics Purposes                                \n");
-    printf("        Github Page: http://daileon.github.com/goosegame                        \n");
-    printf("        Developer: Hiarison Gigante <gigante@daileon.net>                       \n");
-    printf("        Undergraduate Computer Science - UFMA                                   \n");
-    printf("        São Luis, MA - December/2011                                            \n");
-    printf("                                                                                \n");
-    printf("<==============================================================================>\n");
+    printf("<====================== GOOSE GAME ====================>\n");
+    printf("                                                        \n");
+    printf("        Program Developed for Academics Purposes        \n");
+    printf("        Developer: Hiarison Gigante @gigante            \n");
+    printf("        São Luis, MA - December/2011                    \n");
+    printf("                                                        \n");
+    printf("<======================================================>\n");
 
     printf("\n");
     printf("Return to the main menu? (y/n): ");
@@ -54,9 +42,6 @@ void menuCreditos(){
   } while(resposta!='y');
 }
 
-/*
-  This menu receives the name of the players
-*/
 Jogador menuJogador(int item){
   struct Jogador jogador = {"Player", 0};
   limpaTela();
@@ -68,9 +53,6 @@ Jogador menuJogador(int item){
   return jogador;
 }
 
-/*
-  This menu show the basic game rules
-*/
 void menuRegras(){
   char resposta;
   do{
@@ -91,9 +73,6 @@ void menuRegras(){
   } while(resposta!='y');
 }
 
-/*
-  This menu allows the players choose the map wich will be run
-*/
 int menuEscolherMapa(){
   int resposta;
   do{
@@ -110,9 +89,6 @@ int menuEscolherMapa(){
   return resposta;
 }
 
-/*
-  Menu show "continue"
-*/
 void menuContinuar(){
   char resposta;
   do {
@@ -121,9 +97,6 @@ void menuContinuar(){
   } while(resposta!='y');
 }
 
-/*
-  Menu show menu to roll dice
-*/
 void menuDados(){
   char resposta;
   do {

@@ -1,67 +1,48 @@
 #ifndef GAMECORE_H_INCLUDED
 #define GAMECORE_H_INCLUDED
 
-/*
-  This Header File is responsible to control the game
-  All rules were written here
-*/
+#include <stdio.h>
+#include <stdlib.h>
+#include "utils.h"
+#include "dice.h"
+#include "maps/map1.h"
+#include "maps/map2.h"
+#include "animation.h"
 
-#include <stdio.h> //the standard C Library
-#include <stdlib.h> //the standard C Library
-#include "utils.h" //methods that can be used anywhere
-#include "dice.h" //header file of dices
-#include "maps/map1.h" //track 1
-#include "maps/map2.h" //track 2
-#include "animation.h" //the winner animation
-
-/*
-  This method just call the map passed as a parameter
-*/
-int drawMap(Jogador jogador1, Jogador jogador2, int mapa){
-  int ganhou;
-  switch(mapa){
+int drawMap(Jogador jogador1, Jogador jogador2, int mapa) {
+    int ganhou;
+    switch (mapa) {
     case 1:
-      ganhou = drawMap1(jogador1, jogador2);
-      break;
+        ganhou = drawMap1(jogador1, jogador2);
+        break;
     case 2:
-      ganhou = drawMap2(jogador1, jogador2);
-      break;
-  }
-  return ganhou;
+        ganhou = drawMap2(jogador1, jogador2);
+        break;
+    }
+    return ganhou;
 }
 
-/*
-  This method controls the game!
-*/
-void initGame(){
-  Jogador jogador[2]; //Struct located at ./utils.h
-  int i, mapa;
-  int ganhou; //0 = someone won, 1 = nobody won
+void initGame() {
+    Jogador jogador[2];
+    jogador[0] = menuJogador(1);
+    jogador[1] = menuJogador(2);
 
-  //Captura o nome dos jogadores
-  jogador[0] = menuJogador(1);
-  jogador[1] = menuJogador(2);
+    int mapa = menuEscolherMapa();
+    int ganhou = drawMap(jogador[0], jogador[1], mapa);
 
-  //Capture the selected map by user
-  mapa = menuEscolherMapa(); //all menus are located at ./libmenu.h
-
-  //First draw position of players on the track
-  ganhou = drawMap(jogador[0], jogador[1], mapa);
-
-  //Control the game
-  while(ganhou==0){
-    for(i=0; i<=1; i++){
-      menuDados(); //dice menu
-      jogador[i].posicao += jogar2dados(jogador[i]); //add new value to position of player
-      //verifies that the position of the player is bigger than the map
-      jogador[i].posicao = calculaPosicaoMapa(jogador[i].posicao, tamanhoMapa(mapa));
-      ganhou = drawMap(jogador[0], jogador[1], mapa); //draw the new position player
-      if(ganhou==1){ //if current player have finished the race then show animation
-        initAnimationWinner(jogador[i]); //show animation
-        break; //return to main menu
-      }
+    int i;
+    while (!ganhou) {
+        for (i=0; i<=1; i++) {
+            menuDados();
+            jogador[i].posicao += jogar2dados(jogador[i]);
+            jogador[i].posicao = calculaPosicaoMapa(jogador[i].posicao, tamanhoMapa(mapa));
+            ganhou = drawMap(jogador[0], jogador[1], mapa);
+            if (ganhou) {
+                initAnimationWinner(jogador[i]);
+                break;
+            }
+        }
     }
-  }
 }
 
 #endif // GAMECORE_H_INCLUDED
